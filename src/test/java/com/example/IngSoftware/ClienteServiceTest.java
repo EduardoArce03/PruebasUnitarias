@@ -10,7 +10,7 @@ import com.example.IngSoftware.model.Cliente;
 import com.example.IngSoftware.repositories.ClienteRepository;
 import com.example.IngSoftware.services.ClienteService;
 
-import static org.junit.jupiter.api.Assertions.assertNotNull;
+import static org.junit.jupiter.api.Assertions.*;
 import static org.mockito.Mockito.when;
 
 import java.util.Optional;
@@ -38,7 +38,12 @@ public class ClienteServiceTest {
         Cliente result = clienteService.buscarPorId(1L);
 
         // Verificar que el resultado no sea nulo
-        assertNotNull(result);
+        assertNotNull(result, "El cliente no debería ser nulo");
+
+        // Verificar atributos del cliente
+        assertEquals(1L, result.getId(), "El ID del cliente no coincide");
+        assertEquals("Juan Hidalgo Pérez", result.getNombre(), "El nombre del cliente no coincide");
+        assertEquals("Calle Ficticia 98765432", result.getDireccion(), "La dirección del cliente no coincide");
     }
 
     @Test
@@ -54,6 +59,10 @@ public class ClienteServiceTest {
         Cliente result = clienteService.crearCliente(nuevoCliente);
 
         // Verificar que el cliente guardado no sea nulo
-        assertNotNull(result);
+        assertNotNull(result, "El cliente guardado no debería ser nulo");
+
+        // Verificar atributos del cliente guardado
+        assertEquals("María Eduarda Lopez", result.getNombre(), "El nombre del cliente guardado no coincide");
+        assertEquals("Avenida Ejemplo 456123456", result.getDireccion(), "La dirección del cliente guardado no coincide");
     }
 }
