@@ -30,5 +30,15 @@ public class Producto {
     public void aplicarDescuento(double porcentaje) {
         this.precio -= this.precio * (porcentaje / 100);
     }
+
+    // Constructor con parámetros
+    public Producto(Long id, String nombre, Double precio, int stock) {
+        this.id = id;
+        this.nombre = nombre;
+        this.precio = precio;
+        this.stock = stock;
+    }
+
+    public Producto() {}
 }
 

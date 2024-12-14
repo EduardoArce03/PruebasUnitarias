@@ -44,4 +44,14 @@ public class Inventario {
     public boolean verificarDisponibilidad(int cantidadRequerida) {
         return this.cantidad >= cantidadRequerida;
     }
+
+    // Constructor con parámetros
+    public Inventario(Long id, Producto producto, int cantidad) {
+        this.id = id;
+        this.producto = producto;
+        this.cantidad = cantidad;
+    }
+
+    public Inventario() {}
+
 }
