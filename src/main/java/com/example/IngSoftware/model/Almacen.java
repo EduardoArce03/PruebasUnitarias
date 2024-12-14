@@ -17,5 +17,13 @@ public class Almacen {
     private String ubicacion;
     private String tipo;
 
-    
+    public Almacen() {
+
+    }
+
+    public Almacen(Long id, String ubicacion, String tipo) {
+        this.id = id;
+        this.ubicacion = ubicacion;
+        this.tipo = tipo;
+    }
 }
